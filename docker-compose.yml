@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+    ubuntu:
+        image: amostsai/ubuntu_base:latest
+        container_name: ubuntu_dev
+        environment:
+            - DISPLAY=$DISPLAY
+            - LC_MEASUREMENT=zh_TW.UTF-8
+            - LC_PAPER=zh_TW.UTF-8
+            - LC_MONETARY=zh_TW.UTF-8
+            - LANG=zh_TW.UTF-8
+            - LC_NAME=zh_TW.UTF-8
+            - LC_ADDRESS=zh_TW.UTF-8
+            - LC_NUMERIC=zh_TW.UTF-8
+            - LANGUAGE=zh_TW:en_US:en
+            - LC_TELEPHONE=zh_TW.UTF-8
+            - LC_IDENTIFICATION=zh_TW.UTF-8
+            - LC_TIME=zh_TW.UTF-8
+        volumes:
+            - /tmp/.X11-unix:/tmp/.X11-unix
+            - $HOME/.Xauthority:/root/.Xauthority
+            - /etc/localtime:/etc/localtime:ro
+            - /usr/lib:/usr/lib:ro
+            - /lib:/lib:ro
+            - $HOME/.config/Code:/root/.config/Code
+            - $HOME/project:/root/project
+            - $HOME/sample_code:/root/sample_code
+            - $HOME/.vscode:/root/.vscode
+            - $HOME/.cache/dconf:/root/.cache/dconf
+            - $HOME/.config/dconf:/root/.config/dconf
+            - /root/.dbus:/root/.dbus/
+            - /usr/share:/usr/share:ro
+            - /etc/fonts:/etc/fonts
+        devices:
+            - /dev/snd:/dev/snd
+        network_mode: "host"
+        working_dir: /usr/bin
+        command: >
+          sh -c "ln -s /usr/share/code/bin/code /usr/bin/code2 &&
+                 tail -F anything"
