@@ -4,7 +4,7 @@
 2. cd {your project folder}
 3. nano docker-compose.yml
 4. 貼上以下內容
-
+```
 version: "3"
 services:
     ubuntu:
@@ -45,7 +45,7 @@ services:
 5. docker-compose up
 6. docker exec -it ubuntu_dev bash
 7. code2 --user-data-dir=.  /tmp
-
+```
 
 ## 補充:如果要讓vscode能追蹤第三方函數庫
 1. 打開vscode
