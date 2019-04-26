@@ -1,6 +1,6 @@
 # let vscode run in container
 
-1. 在host執行xhost
+1. 在host執行xhost +
 2. cd {your project folder}
 3. nano docker-compose.yml
 4. 貼上以下內容
